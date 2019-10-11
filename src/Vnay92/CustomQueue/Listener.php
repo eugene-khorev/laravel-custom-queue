@@ -88,14 +88,14 @@ class Listener
      */
     protected function buildWorkerCommand()
     {
-        $binary = ProcessUtils::escapeArgument((new PhpExecutableFinder)->find(false));
+        $binary = (new PhpExecutableFinder)->find(false);
 
         if (defined('HHVM_VERSION')) {
             $binary .= ' --php';
         }
 
         if (defined('ARTISAN_BINARY')) {
-            $artisan = ProcessUtils::escapeArgument(ARTISAN_BINARY);
+            $artisan = ARTISAN_BINARY;
         } else {
             $artisan = 'artisan';
         }
@@ -171,8 +171,8 @@ class Listener
         // line that we will pass into a Symfony process object for processing.
         $command = sprintf(
             $string,
-            ProcessUtils::escapeArgument($connection),
-            ProcessUtils::escapeArgument($queue),
+            $connection,
+            $queue,
             $delay,
             $memory,
             $this->sleep,
