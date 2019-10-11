@@ -1,5 +1,5 @@
 {
-    "name": "vnay92/laravel-custom-queue",
+    "name": "eugene-khorev/laravel-custom-queue",
     "description": "A Queue Handler For Messages that are not Laravel Jobs. Useful while communicating between Laravel and External Systems",
     "type": "library",
     "require": {
